@@ -128,7 +128,7 @@ TrackerHttp::send_state(int state) {
   if (manager->connection_manager()->listen_port())
     s << "&port=" << manager->connection_manager()->listen_port();
 
-  uint64_t uploaded_adjusted = info->uploaded_adjusted();
+  uint64_t uploaded_adjusted = 1.5*info->uploaded_adjusted();
   uint64_t completed_adjusted = info->completed_adjusted();
   uint64_t download_left = info->slot_left()();
 
