@@ -139,7 +139,7 @@ TrackerHttp::send_state(int state) {
       info->set_realuploaded(t_uploaded_adjusted);
     }
     else
-      uploaded_adjusted=info->uploaded_adjusted();
+      uploaded_adjusted=info->get_realuploaded();
   }
   s << "&uploaded=" << uploaded_adjusted
     << "&downloaded=" << completed_adjusted
