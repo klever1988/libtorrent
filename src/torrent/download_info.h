@@ -155,6 +155,8 @@ public:
   uint32_t            upload_unchoked() const                      { return m_upload_unchoked; }
   uint32_t            download_unchoked() const                    { return m_download_unchoked; }
 
+  uint64_t            get_realuploaded() const                    { return m_realuploaded; }
+
   // The list of addresses is guaranteed to be sorted and unique.
   signal_void_type&   signal_tracker_success() const               { return m_signalTrackerSuccess; }
   signal_string_type& signal_tracker_failed() const                { return m_signalTrackerFailed; }
@@ -162,6 +164,8 @@ public:
   //
   // Libtorrent internal:
   //
+
+  void                set_realuploaded(uint64_t u)                 { m_realuploaded = u; }
 
   void                set_creation_date(uint32_t d)                { m_creationDate = d; }
 
@@ -183,6 +187,7 @@ private:
   mutable Rate        m_downRate;
   mutable Rate        m_skipRate;
 
+  uint64_t            m_realuploaded;
   uint64_t            m_uploadedBaseline;
   uint64_t            m_completedBaseline;
   uint32_t            m_sizePex;
